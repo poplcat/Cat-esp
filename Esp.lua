@@ -148,3 +148,16 @@ openButton.MouseButton1Click:Connect(function()
     frame.Visible = true -- Показуємо вікно
     openButton.Visible = false -- Ховаємо кнопку "Відкрити"
 end)
+
+local buttonfly = Instance.new("TextButton")
+buttonfly.Size = UDim2.new(0.8, 0, 0.25, 0)
+buttonfly.Position = UDim2.new(0.1, 0, 0.4, 0)
+buttonflt.Text = "fly"
+buttonfly.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+buttonfly.TextColor3 = Color3.new(1, 1, 1)
+buttonfly.Parent = frame
+end)
+game:IsLoaded();
+    		loadstring(game:HttpGet("https://raw.githubusercontent.com/poplcat/Cat-esp/refs/heads/main/Fly.lua"))();
+		]]);
+	end,
