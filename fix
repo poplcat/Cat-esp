@@ -1,0 +1,31 @@
+-- Оптимізація GUI для мобільних пристроїв
+local function createMobileFriendlyGUI()
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    ScreenGui.ResetOnSpawn = false
+
+    local Frame = Instance.new("Frame")
+    Frame.Parent = ScreenGui
+    Frame.Size = UDim2.new(0.8, 0, 0.8, 0) -- Зменшення розміру для мобільного пристрою
+    Frame.Position = UDim2.new(0.1, 0, 0.1, 0)
+    Frame.BackgroundColor3 = Color3.fromRGB(106, 102, 121)
+    Frame.BorderSizePixel = 0
+
+    local TextButton = Instance.new("TextButton")
+    TextButton.Parent = Frame
+    TextButton.Size = UDim2.new(0.9, 0, 0.1, 0)
+    TextButton.Position = UDim2.new(0.05, 0, 0.05, 0)
+    TextButton.Text = "Explode All"
+    TextButton.TextScaled = true
+    TextButton.TextWrapped = true
+    TextButton.MouseButton1Down:Connect(function()
+        local players = game:GetService("Players")
+        for _, player in ipairs(players:GetPlayers()) do
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(":explode " .. player.Name)
+        end
+    end)
+
+    -- Додавання інших кнопок та функцій...
+end
+
+createMobileFriendlyGUI()
